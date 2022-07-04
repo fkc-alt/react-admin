@@ -5,7 +5,7 @@ const OrderRouter = [
     {
         sort: 2,
         path: '/order',
-        key: 'Order',
+        key: '/order',
         label: '订单',
         title: '订单',
         icon: <GithubFilled />,

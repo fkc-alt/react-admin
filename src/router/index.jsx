@@ -8,7 +8,7 @@ import modules from './modules';
 
 export const routes = [
   {
-    key: "Dashboard",
+    key: "/",
     icon: <GithubFilled />,
     label: "首页",
     path: "/",

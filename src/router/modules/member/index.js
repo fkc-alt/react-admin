@@ -11,14 +11,14 @@ const MemberRouter = [
         children: [
             {
                 path: '/memberInfo',
-                key: 'MemberInfo',
+                key: '/memberInfo',
                 label: '会员信息',
                 icon: <GithubFilled />,
                 element: <Member/>,
             },
             {
                 path: '/memberList',
-                key: 'MemberList',
+                key: '/memberList',
                 label: '会员列表',
                 icon: <GithubFilled />,
                 element: <MemberList/>,

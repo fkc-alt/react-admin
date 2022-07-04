@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux'
 import { Layout, Button } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import header from "../styles/header.module.css";
+import header from "../styles/header.module.scss";
 
 const { Header } = Layout
 

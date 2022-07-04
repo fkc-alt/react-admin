@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-
+import { connect } from 'react-redux'
 import WithRouter from '@/hooks/WithRouter'
 import { getUserInfo } from '@/api';
 
+// 获取redux中的settings中的state
+const mapStateToProps = (state) => {
+  return {
+    settings: state.settings
+  }
+}
+
 class index extends Component {
   componentDidMount() {
-    console.log(this);
     getUserInfo({ name: 'fkc' }).then(res => {}).catch(err => {
       console.log(err);
     })
@@ -19,4 +25,4 @@ class index extends Component {
   }
 }
 
-export default WithRouter(index)
+export default WithRouter(connect(mapStateToProps)(index));

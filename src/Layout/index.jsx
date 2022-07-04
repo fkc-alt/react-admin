@@ -16,7 +16,7 @@ class index extends Component {
         <Sider {...this.props.router} />
         <Layout>
           <Header />
-          <Content view={this.props.view} {...this.props.router}/>
+          <Content view={this.props.view} {...this.props.router} />
           <Footer />
         </Layout>
       </Layout>
