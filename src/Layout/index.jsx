@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Layout } from "antd";
 
-import WithRouter from '../hooks/WithRouter'
+import WithRouter from '@/hooks/WithRouter'
 import Sider from "./components/Sider";
 import Header from "./components/Header";
 import Footer from "./components/Footer";

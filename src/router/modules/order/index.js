@@ -1,5 +1,5 @@
 import { GithubFilled } from '@ant-design/icons'
-import Order from '../../../pages/Order';
+import Order from '@/pages/Order';
 
 const OrderRouter = [
     {

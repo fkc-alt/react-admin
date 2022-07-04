@@ -1,6 +1,6 @@
 import { GithubFilled } from '@ant-design/icons'
-import Member from '../../../pages/Member';
-import MemberList from '../../../pages/Member/MemberList';
+import Member from '@/pages/Member';
+import MemberList from '@/pages/Member/MemberList';
 
 const MemberRouter = [
     {

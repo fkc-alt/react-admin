@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { connect } from 'react-redux'
-import { routes } from "../../router";
+import { routes } from "@/router";
 import menu from "../styles/menu.module.css";
 
 const { Sider } = Layout

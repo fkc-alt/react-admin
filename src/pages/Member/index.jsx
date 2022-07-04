@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import WithRouter from '../../hooks/WithRouter'
-import { getUserInfo } from '../../api';
+import WithRouter from '@/hooks/WithRouter'
+import { getUserInfo } from '@/api';
 
 class index extends Component {
   componentDidMount() {

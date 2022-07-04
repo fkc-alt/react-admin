@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { GithubFilled } from "@ant-design/icons";
 
-import Layout from "../Layout";
-import Dashboard from "../pages/Dashboard";
+import Layout from "@/Layout";
+import Dashboard from "@/pages/Dashboard";
 import modules from './modules';
 
 export const routes = [
