@@ -1,0 +1,9 @@
+.container {
+  background: white;
+  position: fixed;
+  width: 100%;
+  padding: 0 20px;
+}
+.title {
+  text-align: center;
+}
