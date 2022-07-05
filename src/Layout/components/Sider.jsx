@@ -30,11 +30,11 @@ class index extends Component {
     const { settings: { isCollapsed }, location } = this.props;
     return (
       <Sider style={{overflowX: 'hidden'}} collapsed={isCollapsed}>
-        <div style={{ textAlign: "center" }}>
+        <div style={{textAlign: "center"}}>
           <span className={menu[isCollapsed ? "menu-title_collapsed" : "menu-title"]}>Admin</span>
         </div>
         <Menu
-          style={{ width: isCollapsed ? 80 : 200}}
+          style={{width: isCollapsed ? 80 : 200}}
           mode="inline"
           theme="dark"
           selectedKeys={[location.pathname]}
