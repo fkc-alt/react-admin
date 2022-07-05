@@ -65,8 +65,8 @@ class index extends Component {
         <Radio value="checkbox">Checkbox</Radio>
         <Radio value="radio">radio</Radio>
       </Radio.Group>
-      <Link to={{pathname: 'memberInfo', search: 'name=123'}}>memberInfo</Link>
-      {/* <b onClick={()=> navigate('/order', { state: {name: 'fkc'} })}>去订单</b> */}
+      <Link to={{pathname: 'member/info', search: 'name=123&age=12'}}>去会员详情</Link> |
+      <b onClick={()=> this.props.router.navigate('/order', { state: {name: 'fkc'} })}> 去订单</b>
       <Divider />
 
       <Table

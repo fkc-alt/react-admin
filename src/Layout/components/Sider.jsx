@@ -37,7 +37,6 @@ class index extends Component {
           style={{ width: isCollapsed ? 80 : 200}}
           mode="inline"
           theme="dark"
-          defaultSelectedKeys={['/']} 
           selectedKeys={[location.pathname]}
           items={this.handleRoutes(routes)}
         ></Menu>

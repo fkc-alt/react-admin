@@ -1,9 +1,9 @@
-import request from '../axios/request';
+import request from '@/axios/request';
 
-export const getUserInfo = (params) => {
+export const getUserInfo = (data) => {
     return request({
-        url: '/user/info',
-        method: 'get',
-        params
+        url: 'user/login',
+        method: 'post',
+        data
     })
 }
