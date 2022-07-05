@@ -9,9 +9,9 @@ import modules from './modules';
 export const routes = [
   {
     key: "/",
-    icon: <GithubFilled />,
     label: "首页",
     path: "/",
+    icon: <GithubFilled />,
     element: <Dashboard />,
   },
   ...modules,
@@ -32,9 +32,7 @@ export default class index extends Component {
         <Layout
           view={
             <Routes>
-              {this.handleRoute(routes).map((route) => (
-                <Route {...route} />
-              ))}
+              {this.handleRoute(routes).map((route) => (<Route {...route} />))}
             </Routes>
           }
         />
