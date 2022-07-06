@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-// 可能以后要添加case
+/*
+  目前可以匹配到三级路由, 如果需要匹配更多的路由, 可以在这里添加case
+*/ 
 function matchRouterKeys(openKeys){
   switch (openKeys.length) {
     case 2:
