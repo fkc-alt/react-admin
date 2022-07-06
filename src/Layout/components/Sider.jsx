@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Layout, Menu } from "antd";
 
-import { routes } from "@/router";
+import { routes, RootSubmenuKeys } from "@/router";
 import menu from "../styles/menu.module.scss";
 
 const { Sider } = Layout
@@ -16,6 +16,20 @@ const mapStateToProps = (state) => {
 }
 
 class index extends Component {
+  state = {
+    RootSubmenuKeys: RootSubmenuKeys(routes),
+    openKeys: []
+  }
+  handleOpenChange = (openKeys) => {
+    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+    if (this.state.RootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      this.setState({ openKeys });
+    } else {
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : [],
+      });
+    }
+  }
   handleRoutes = (routes) => {
     return routes.map((route) => {
       return {
@@ -38,6 +52,8 @@ class index extends Component {
           mode="inline"
           theme="dark"
           selectedKeys={[location.pathname]}
+          openKeys={this.props.openKeys}
+          onOpenChange={(openKeys) => this.props.onOpenChange(openKeys)}
           items={this.handleRoutes(routes)}
         ></Menu>
       </Sider>

@@ -17,6 +17,14 @@ export const routes = [
   ...modules,
 ];
 
+export const RootSubmenuKeys = (routes) => {
+  return routes.reduce((prev, next) => {
+    if(next.children){
+      return [...prev, next.key, ...RootSubmenuKeys(next.children)]
+    }
+    return prev;
+  }, [])
+}
 export default class index extends Component {
   handleRoute = (routes) => {
     return routes.reduce((prev, next) => {

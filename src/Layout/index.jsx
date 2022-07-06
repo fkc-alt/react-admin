@@ -11,7 +11,7 @@ class index extends Component {
   render() {
     return (
       <Layout style={{ height: "100vh"}} >
-        <Sider {...this.props.router} />
+        <Sider {...this.props.router} onOpenChange={this.props.onOpenChange} />
         <Layout>
           <Header />
           <Content view={this.props.view} {...this.props.router} />
