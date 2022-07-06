@@ -6,7 +6,7 @@ import { Layout, Menu } from "antd";
 import { routes } from "@/router";
 import menu from "../styles/menu.module.scss";
 
-const { Sider } = Layout
+const { Sider } = Layout;
 
 // 获取redux中的settings中的state
 const mapStateToProps = (state) => {
@@ -40,7 +40,7 @@ class index extends Component {
           openKeys={openKeys}
           selectedKeys={[location.pathname]}
           items={this.handleRoutes(routes)}
-          onOpenChange={(openKeys) => this.props.onOpenChange(openKeys)}
+          onOpenChange={this.props.onOpenChange}
         ></Menu>
       </Sider>
     );
