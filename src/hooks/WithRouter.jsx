@@ -23,9 +23,8 @@ export default function WithRouter(Component) {
   function ComponentWithRouterProp(props) {
     const [ openKeys, setOpenKeys ] = useState([]);
     const [location, navigate, params] = [useLocation(), useNavigate(), useParams()];
-
+    const RootSubmenuKeys = handleRootSubmenuKeys(routes);
     function handleOpenChange(openKeys) {
-      const RootSubmenuKeys = handleRootSubmenuKeys(routes);
       const latestOpenKey = openKeys.find(key => openKeys.indexOf(key) === -1);
       if (RootSubmenuKeys.indexOf(latestOpenKey) === -1) {
         setOpenKeys(openKeys);
