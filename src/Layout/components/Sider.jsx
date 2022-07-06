@@ -51,10 +51,10 @@ class index extends Component {
           style={{width: isCollapsed ? 80 : 200}}
           mode="inline"
           theme="dark"
-          selectedKeys={[location.pathname]}
           openKeys={this.props.openKeys}
-          onOpenChange={(openKeys) => this.props.onOpenChange(openKeys)}
+          selectedKeys={[location.pathname]}
           items={this.handleRoutes(routes)}
+          onOpenChange={(openKeys) => this.props.onOpenChange(openKeys)}
         ></Menu>
       </Sider>
     );

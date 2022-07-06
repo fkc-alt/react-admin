@@ -11,11 +11,9 @@ function matchRouterKeys(openKeys){
     case 4:
       return [`/${openKeys.slice(1, 2)}`, `/${openKeys.slice(2, 3)}`];
     default:
-      return []
+      return [];
   }
 }
-
-
 
 export default function WithRouter(Component) {
 
@@ -27,8 +25,7 @@ export default function WithRouter(Component) {
     }
     
     useEffect(() => {
-      let menuKeys = location.pathname.split("/");
-      setOpenKeys(matchRouterKeys(menuKeys));
+      setOpenKeys(matchRouterKeys(location.pathname.split("/")));
     }, [location]);
 
     return <Component {...props} onOpenChange={handleOpenChange} router={{ location, navigate, params, openKeys }}/>;
