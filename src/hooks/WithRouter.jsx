@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 /*
-  目前可以匹配到三级路由, 如果需要匹配更多的路由, 可以在这里添加case
+  目前可以匹配到二级SubMenu, 如需匹配嵌套更深的SubMenu, 可以在这里添加case
 */ 
-function matchRouterKeys(openKeys){
+function matchSubMenuKeys(openKeys){
   switch (openKeys.length) {
     case 2:
       return [];
@@ -26,7 +26,7 @@ export default function WithRouter(Component) {
     const handleOpenChange = (openKeys) => setOpenKeys(openKeys);
 
     useEffect(() => {
-      setOpenKeys(matchRouterKeys(location.pathname.split("/")));
+      setOpenKeys(matchSubMenuKeys(location.pathname.split("/")));
     }, [location]);
 
     return <Component {...props} onOpenChange={handleOpenChange} router={{ location, navigate, params, openKeys }}/>;
