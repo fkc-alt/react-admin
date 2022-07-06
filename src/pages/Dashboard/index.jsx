@@ -53,7 +53,7 @@ class index extends Component {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   }
   render(){
-    const { selectionType, columns, data} = this.state;
+    const { selectionType, columns, data } = this.state;
     return (
       <div>
         <Radio.Group

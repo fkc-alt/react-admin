@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
+import { routes, RootSubmenuKeys as handleRootSubmenuKeys } from "@/router";
+
 // 可能以后要添加case
 function matchRouterKeys(openKeys){
   switch (openKeys.length) {
@@ -15,13 +17,21 @@ function matchRouterKeys(openKeys){
   }
 }
 
+
 export default function WithRouter(Component) {
 
   function ComponentWithRouterProp(props) {
     const [ openKeys, setOpenKeys ] = useState([]);
     const [location, navigate, params] = [useLocation(), useNavigate(), useParams()];
+
     function handleOpenChange(openKeys) {
-      setOpenKeys(openKeys);
+      const RootSubmenuKeys = handleRootSubmenuKeys(routes);
+      const latestOpenKey = openKeys.find(key => openKeys.indexOf(key) === -1);
+      if (RootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+        setOpenKeys(openKeys);
+      } else {
+        setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+      }
     }
     
     useEffect(() => {

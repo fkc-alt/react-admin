@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Layout, Menu } from "antd";
 
-import { routes, RootSubmenuKeys } from "@/router";
+import { routes } from "@/router";
 import menu from "../styles/menu.module.scss";
 
 const { Sider } = Layout
@@ -16,20 +16,6 @@ const mapStateToProps = (state) => {
 }
 
 class index extends Component {
-  state = {
-    RootSubmenuKeys: RootSubmenuKeys(routes),
-    openKeys: []
-  }
-  handleOpenChange = (openKeys) => {
-    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
-    if (this.state.RootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      this.setState({ openKeys });
-    } else {
-      this.setState({
-        openKeys: latestOpenKey ? [latestOpenKey] : [],
-      });
-    }
-  }
   handleRoutes = (routes) => {
     return routes.map((route) => {
       return {
@@ -41,7 +27,7 @@ class index extends Component {
     });
   };
   render() {
-    const { settings: { isCollapsed }, location } = this.props;
+    const { settings: { isCollapsed }, location, openKeys } = this.props;
     return (
       <Sider style={{overflowX: 'hidden'}} collapsed={isCollapsed}>
         <div style={{textAlign: "center"}}>
@@ -51,7 +37,7 @@ class index extends Component {
           style={{width: isCollapsed ? 80 : 200}}
           mode="inline"
           theme="dark"
-          openKeys={this.props.openKeys}
+          openKeys={openKeys}
           selectedKeys={[location.pathname]}
           items={this.handleRoutes(routes)}
           onOpenChange={(openKeys) => this.props.onOpenChange(openKeys)}
