@@ -14,3 +14,12 @@
         return prev;
     }, {})
 }
+
+
+export const getToken = () => {
+    return sessionStorage.getItem('token') || '';
+}
+
+export const setToken = (data) => {
+    sessionStorage.setItem('token', data);
+}
