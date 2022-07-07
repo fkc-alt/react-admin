@@ -31,7 +31,7 @@ export default function WithRouter(Component) {
       NProgress.start();
       setOpenKeys(matchSubMenuKeys(location.pathname.split("/")));
       NProgress.done();
-    }, [location]);
+    }, [location.pathname]);
 
     return <Component {...props} onOpenChange={handleOpenChange} router={{ location, navigate, params, openKeys }}/>;
   }
