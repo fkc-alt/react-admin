@@ -54,7 +54,8 @@ class index extends Component {
   };
   renderComponent = () => {
     if(this.props.user.token){
-      return <Layout
+      return (
+        <Layout
           view={
             <Routes>
               {this.handleRoute(routes).map((route) => (<Route {...route} />))}
@@ -62,6 +63,7 @@ class index extends Component {
             </Routes>
           }
         />
+      )
     }
     return (
       <Routes>
