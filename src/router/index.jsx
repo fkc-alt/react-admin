@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { GithubFilled } from "@ant-design/icons";
 
 import Layout from "@/Layout";
@@ -58,13 +58,15 @@ class index extends Component {
           view={
             <Routes>
               {this.handleRoute(routes).map((route) => (<Route {...route} />))}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           }
         />
     }
     return (
       <Routes>
-        <Route key="/" path="/" element={<Login/>}></Route>
+        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route key="/" path="/" element={<Navigate to='/login' replace />}></Route>
         <Route key="/login" path="/login" element={<Login/>}></Route>
       </Routes>
     )
