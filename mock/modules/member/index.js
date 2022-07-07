@@ -13,9 +13,11 @@
         method: 'post',
         response: (_, config) => {
             return { 
-                token: _.mock('@id'), 
                 code: 200, 
-                msg: 'success'
+                msg: 'success',
+                data: {
+                    token: _.mock('@id'), 
+                },
             }
         }
     },

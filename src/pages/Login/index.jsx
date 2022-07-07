@@ -2,14 +2,14 @@ import React, { Component, createRef } from "react";
 import { connect } from "react-redux";
 import { Button, Checkbox, Form, Input } from "antd";
 
+import { login } from '@/api'
 import WithRouter from "@/hooks/WithRouter";
-import { setToken } from "@/utils";
 
 // 获取redux中的settings中的action
 const mapDispatchToProps = (dispatch) => {
   return {
-    setToken(payload) {
-      dispatch({ type: "user/setToken", payload });
+    setToken(value) {
+      dispatch({ type: "user/setToken", value });
     },
   };
 };
@@ -24,10 +24,13 @@ class index extends Component {
   };
   login = () => {
     this.form.current.validateFields().then(() => {
-      const { navigate } = this.props.router;
-      this.props.setToken(123);
-      setToken(123);
-      navigate("/");
+      login({userName: 'System', password: '123456'}).then(res => {
+        const { navigate } = this.props.router;
+        this.props.setToken(res.data.token);
+        navigate("/");
+      }).catch(err => {
+        console.log(err)
+      })
     }).catch((info) => {
       console.log("Validate Failed:", info);
     })
