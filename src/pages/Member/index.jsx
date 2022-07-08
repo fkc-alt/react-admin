@@ -11,7 +11,19 @@ const mapStateToProps = (state) => {
   };
 };
 
+// 获取redux中的settings中的action
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setToken(value = '') {
+      dispatch({ type: "user/setToken", value });
+    },
+  };
+};
 class index extends Component {
+  logout = (pathname) => {
+    this.props.setToken();
+    this.props.router.navigate(`/login?redirect=${pathname}`);
+  }
   componentDidMount() {
     getList(getParams(this.props.router.location.search))
       .then((res) => {
@@ -22,8 +34,10 @@ class index extends Component {
       });
   }
   render() {
-    return <div>Member</div>;
+    return <div>Member
+      <b onClick={() => this.logout(this.props.router.location.pathname)}> 退出登录</b>
+    </div>;
   }
 }
 
-export default WithRouter(connect(mapStateToProps)(index));
+export default WithRouter(connect(mapStateToProps, mapDispatchToProps)(index));

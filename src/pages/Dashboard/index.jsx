@@ -3,7 +3,6 @@ import { Divider, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 
 import WithRouter from '@/hooks/WithRouter';
-
 class index extends Component {
   state = {
     selectionType: 'checkbox',

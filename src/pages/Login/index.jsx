@@ -4,6 +4,7 @@ import { Button, Checkbox, Form, Input } from "antd";
 
 import { login } from '@/api'
 import WithRouter from "@/hooks/WithRouter";
+import { getParams } from '@/utils';
 
 // 获取redux中的settings中的action
 const mapDispatchToProps = (dispatch) => {
@@ -13,7 +14,6 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-
 class index extends Component {
   form = createRef();
   onFinish = (values) => {
@@ -25,9 +25,12 @@ class index extends Component {
   login = () => {
     this.form.current.validateFields().then(() => {
       login({userName: 'System', password: '123456'}).then(res => {
-        const { navigate } = this.props.router;
+        const { location, navigate } = this.props.router;
+        const { redirect } = getParams(location.search);
         this.props.setToken(res.data.token);
-        navigate("/");
+        setTimeout(() => {
+          navigate(redirect || "/");
+        }, 0);
       }).catch(err => {
         console.log(err)
       })
