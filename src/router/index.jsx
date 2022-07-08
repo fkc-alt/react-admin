@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { GithubFilled } from "@ant-design/icons";
 
+import store from '@/store';
 import Layout from "@/Layout";
 import Dashboard from "@/pages/Dashboard";
 import Login from "@/pages/Login";
@@ -25,6 +26,20 @@ export const RootSubmenuKeys = (routes) => {
       return [...prev, next.key, ...RootSubmenuKeys(next.children)]
     }
     return prev;
+  }, [])
+}
+
+export const FilterRouterMenu = (routes, type = void 0) => {
+  return routes.filter((route) => {
+    if(route.children){
+      route.children = FilterRouterMenu(route.children);
+      return !!route.children.length;
+    }
+    if(route.role && route.role.length){
+      if(!type) return store.getState().user.roleList.some(role => route.role.includes(role));
+      return store.getState().user.roleList.some(role => route.role.includes(role)) && !route.hidden;
+    }
+    return !route.hidden;
   }, [])
 }
 
@@ -58,7 +73,7 @@ class index extends Component {
         <Layout
           view={
             <Routes>
-              {this.handleRoute(routes).map((route) => (<Route {...route} />))}
+              {this.handleRoute(FilterRouterMenu(routes)).map((route) => (<Route {...route} />))}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           }

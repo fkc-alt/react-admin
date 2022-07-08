@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { Layout, Menu } from "antd";
 
-import { routes } from "@/router";
+import { routes, FilterRouterMenu } from "@/router";
 import menu from "../styles/menu.module.scss";
 
 const { Sider } = Layout;
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 
 class index extends Component {
   handleRoutes = (routes) => {
-    return routes.map((route) => {
+    return FilterRouterMenu(routes, true).map((route) => {
       return {
         key: route.key,
         icon: route.icon,

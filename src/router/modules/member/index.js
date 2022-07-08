@@ -2,6 +2,12 @@ import { GithubFilled } from '@ant-design/icons'
 import Member from '@/pages/Member';
 import MemberList from '@/pages/Member/MemberList';
 
+import {
+    Owner, // 店主
+    Admin, // 超级管理员
+    OP, // 运营人员
+} from '@/router/role/roleMap';
+
 const MemberRouter = [
     {
         sort: 1,
@@ -10,18 +16,22 @@ const MemberRouter = [
         icon: <GithubFilled />,
         children: [
             {
+                hidden: true,
                 path: '/member/info',
                 key: '/member/info',
                 label: '会员信息',
                 icon: <GithubFilled />,
                 element: <Member/>,
+                role: [Owner, Admin, OP],
             },
             {
+                hidden: false,
                 path: '/member/list',
                 key: '/member/list',
                 label: '会员列表',
                 icon: <GithubFilled />,
                 element: <MemberList/>,
+                role: [Owner, Admin, OP],
             }    
         ]
     }

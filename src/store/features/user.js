@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { getToken, setToken } from '@/utils'
 const initialState = {
     token: getToken(),
+    roleList: [5],
 }
 
 export const userSlice = createSlice({
