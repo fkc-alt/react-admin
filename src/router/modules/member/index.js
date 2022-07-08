@@ -16,7 +16,7 @@ const MemberRouter = [
         icon: <GithubFilled />,
         children: [
             {
-                hidden: true,
+                hidden: false,
                 path: '/member/info',
                 key: '/member/info',
                 label: '会员信息',

@@ -11,6 +11,7 @@ import modules from './modules';
 
 export const routes = [
   {
+    hidden:false,
     key: "/",
     label: "首页",
     path: "/",
@@ -36,10 +37,10 @@ export const FilterRouterMenu = (routes, type = void 0) => {
       return !!route.children.length;
     }
     if(route.role && route.role.length){
-      if(!type) return store.getState().user.roleList.some(role => route.role.includes(role));
-      return store.getState().user.roleList.some(role => route.role.includes(role)) && !route.hidden;
+      const condition = store.getState().user.roleList.some(role => route.role.includes(role));
+      return type ? condition && !route.hidden : condition;
     }
-    return !route.hidden;
+    return type ? !route.hidden : true;
   }, [])
 }
 
@@ -60,6 +61,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 class index extends Component {
   handleRoute = (routes) => {
+    console.log(routes);
     return routes.reduce((prev, next) => {
       if (next.children) {
         return [...prev, ...this.handleRoute(next.children)];
