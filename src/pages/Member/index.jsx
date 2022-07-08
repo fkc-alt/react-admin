@@ -20,9 +20,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 class index extends Component {
-  logout = (pathname) => {
+  logout = () => {
     this.props.setToken();
-    this.props.router.navigate(`/login?redirect=${pathname}`);
   }
   componentDidMount() {
     getList(getParams(this.props.router.location.search))
@@ -35,7 +34,7 @@ class index extends Component {
   }
   render() {
     return <div>Member
-      <b onClick={() => this.logout(this.props.router.location.pathname)}> 退出登录</b>
+      <b onClick={this.logout}> 退出登录</b>
     </div>;
   }
 }

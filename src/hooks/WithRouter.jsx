@@ -3,6 +3,8 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
+import store from '@/store';
+
 /*
   目前可以匹配到二级SubMenu, 如需匹配嵌套更深的SubMenu, 可以在这里添加case
 */ 
@@ -19,7 +21,6 @@ function matchSubMenuKeys(openKeys){
   }
 }
 
-
 export default function WithRouter(Component) {
 
   function ComponentWithRouterProp(props) {
@@ -30,8 +31,13 @@ export default function WithRouter(Component) {
     useEffect(() => {
       NProgress.start();
       setOpenKeys(matchSubMenuKeys(location.pathname.split("/")));
+      store.subscribe(() => {
+        if(!store.getState().user.token && location.pathname !== '/login'){
+          navigate(`/login?redirect=${location.pathname}`);
+        }
+      })
       NProgress.done();
-    }, [location.pathname]);
+    }, [location.pathname, navigate]);
 
     return <Component {...props} onOpenChange={handleOpenChange} router={{ location, navigate, params, openKeys }}/>;
   }
