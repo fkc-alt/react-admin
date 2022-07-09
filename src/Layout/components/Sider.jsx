@@ -14,7 +14,6 @@ const mapStateToProps = (state) => {
     settings: state.settings
   }
 }
-
 class index extends Component {
   handleRoutes = (routes) => {
     return FilterRouterMenu(routes, true).map((route) => {

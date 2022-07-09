@@ -21,7 +21,6 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-
 class index extends Component {
   render() {
     return (

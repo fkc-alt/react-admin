@@ -61,7 +61,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 class index extends Component {
   handleRoute = (routes) => {
-    console.log(routes);
     return routes.reduce((prev, next) => {
       if (next.children) {
         return [...prev, ...this.handleRoute(next.children)];
