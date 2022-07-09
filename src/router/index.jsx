@@ -33,10 +33,10 @@ export const RootSubmenuKeys = (routes) => {
 export const FilterRouterMenu = (routes, type = void 0) => {
   return routes.filter((route) => {
     if(route.children){
-      route.children = FilterRouterMenu(route.children);
+      route.children = FilterRouterMenu(route.children, type);
       return !!route.children.length;
     }
-    if(route.role && route.role.length){
+    if(route.role?.length){
       const condition = store.getState().user.roleList.some(role => route.role.includes(role));
       return type ? condition && !route.hidden : condition;
     }
