@@ -26,7 +26,7 @@ class index extends Component {
     });
   };
   render() {
-    const { settings: { isCollapsed }, location, openKeys } = this.props;
+    const { settings: { isCollapsed }, location, openKeys, onOpenChange } = this.props;
     return (
       <Sider style={{overflowX: 'hidden'}} collapsed={isCollapsed}>
         <div style={{textAlign: "center"}}>
@@ -39,7 +39,7 @@ class index extends Component {
           openKeys={openKeys}
           selectedKeys={[location.pathname]}
           items={this.handleRoutes(routes)}
-          onOpenChange={this.props.onOpenChange}
+          onOpenChange={onOpenChange}
         ></Menu>
       </Sider>
     );
