@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
-import { GithubFilled } from "@ant-design/icons";
+import { DesktopOutlined } from "@ant-design/icons";
 
 import store from '@/store';
 import Layout from "@/Layout";
@@ -15,7 +15,7 @@ export const routes = [
     key: "/",
     label: "首页",
     path: "/",
-    icon: <GithubFilled />,
+    icon: <DesktopOutlined />,
     element: <Dashboard />,
   },
   ...modules,

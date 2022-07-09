@@ -1,4 +1,4 @@
-import { GithubFilled } from '@ant-design/icons'
+import { AccountBookOutlined } from '@ant-design/icons'
 import Order from '@/pages/Order';
 
 const OrderRouter = [
@@ -9,7 +9,7 @@ const OrderRouter = [
         key: '/order',
         label: '订单',
         title: '订单',
-        icon: <GithubFilled />,
+        icon: <AccountBookOutlined />,
         element: <Order/>,
     }
 ]

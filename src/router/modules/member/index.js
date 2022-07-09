@@ -1,4 +1,4 @@
-import { GithubFilled } from '@ant-design/icons'
+import { UserOutlined, UsergroupAddOutlined, UserDeleteOutlined } from '@ant-design/icons'
 import Member from '@/pages/Member';
 import MemberList from '@/pages/Member/MemberList';
 
@@ -13,14 +13,14 @@ const MemberRouter = [
         sort: 1,
         key: '/member',
         label: '会员管理',
-        icon: <GithubFilled />,
+        icon: <UserOutlined />,
         children: [
             {
                 hidden: false,
                 path: '/member/info',
                 key: '/member/info',
                 label: '会员信息',
-                icon: <GithubFilled />,
+                icon: <UserDeleteOutlined />,
                 element: <Member/>,
                 role: [Owner, Admin, OP],
             },
@@ -29,7 +29,7 @@ const MemberRouter = [
                 path: '/member/list',
                 key: '/member/list',
                 label: '会员列表',
-                icon: <GithubFilled />,
+                icon: <UsergroupAddOutlined />,
                 element: <MemberList/>,
                 role: [Owner, Admin, OP],
             }    
