@@ -44,6 +44,15 @@ export const FilterRouterMenu = (routes, type = void 0) => {
   }, [])
 }
 
+export const handleRoute = (routes) => {
+  return routes.reduce((prev, next) => {
+    if (next.children) {
+      return [...prev, ...handleRoute(next.children)];
+    }
+    return [...prev, next];
+  }, []);
+};
+
 // 获取redux中的settings中的state
 const mapStateToProps = (state) => {
   return {
@@ -51,51 +60,35 @@ const mapStateToProps = (state) => {
   };
 };
 
-// 获取redux中的settings中的action
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setToken(){
-      dispatch({ type: 'user/setToken' })
-    }
-  }
-}
-class index extends Component {
-  handleRoute = (routes) => {
-    return routes.reduce((prev, next) => {
-      if (next.children) {
-        return [...prev, ...this.handleRoute(next.children)];
-      }
-      return [...prev, next];
-    }, []);
-  };
-  renderComponent = () => {
-    if(this.props.user.token){
-      return (
-        <Layout
-          view={
-            <Routes>
-              {this.handleRoute(FilterRouterMenu(routes)).map((route) => (<Route {...route} />))}
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          }
-        />
-      )
-    }
+const RouterView = (props) => {
+  if(props.user.token){
     return (
-      <Routes>
-        <Route path="*" element={<Navigate to="/login" replace />} />
-        <Route key="/" path="/" element={<Navigate to='/login' replace />}></Route>
-        <Route key="/login" path="/login" element={<Login/>}></Route>
-      </Routes>
+      <Layout
+        view={
+          <Routes>
+            {handleRoute(FilterRouterMenu(routes)).map((route) => (<Route {...route} />))}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        }
+      />
     )
   }
+  return (
+    <Routes>
+      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route key="/" path="/" element={<Navigate to='/login' replace />}></Route>
+      <Route key="/login" path="/login" element={<Login/>}></Route>
+    </Routes>
+  );
+}
+class index extends Component {
   render() {
     return (
       <HashRouter>
-        {this.renderComponent()}
+        <RouterView {...this.props} />
       </HashRouter>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(index);
+export default connect(mapStateToProps)(index);
