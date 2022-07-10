@@ -11,7 +11,7 @@ import modules from './modules';
 
 export const routes = [
   {
-    hidden:false,
+    hidden: false,
     key: "/",
     label: "首页",
     path: "/",
@@ -23,7 +23,7 @@ export const routes = [
 
 export const RootSubmenuKeys = (routes) => {
   return routes.reduce((prev, next) => {
-    if(next.children){
+    if (next.children) {
       return [...prev, next.key, ...RootSubmenuKeys(next.children)]
     }
     return prev;
@@ -32,11 +32,11 @@ export const RootSubmenuKeys = (routes) => {
 
 export const FilterRouterMenu = (routes, type = void 0) => {
   return routes.filter((route) => {
-    if(route.children){
+    if (route.children) {
       route.children = FilterRouterMenu(route.children, type);
       return !!route.children.length;
     }
-    if(route.role?.length){
+    if (route.role?.length) {
       const condition = store.getState().user.roleList.some(role => route.role.includes(role));
       return type ? condition && !route.hidden : condition;
     }
@@ -61,7 +61,7 @@ const mapStateToProps = (state) => {
 };
 
 const RouterView = (props) => {
-  if(props.user.token){
+  if (props.user.token) {
     return (
       <Layout
         view={
@@ -77,7 +77,7 @@ const RouterView = (props) => {
     <Routes>
       <Route path="*" element={<Navigate to="/login" replace />} />
       <Route key="/" path="/" element={<Navigate to='/login' replace />}></Route>
-      <Route key="/login" path="/login" element={<Login/>}></Route>
+      <Route key="/login" path="/login" element={<Login />}></Route>
     </Routes>
   );
 }
