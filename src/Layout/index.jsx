@@ -9,7 +9,7 @@ import Content from "./components/Content";
 class index extends Component {
   render() {
     return (
-      <Layout style={{ height: "100vh"}} >
+      <Layout style={{ height: "100vh" }} >
         <Sider {...this.props.router} onOpenChange={this.props.onOpenChange} />
         <Layout>
           <Header />

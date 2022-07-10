@@ -3,7 +3,7 @@ import { Layout } from "antd";
 
 import content from "../styles/content.module.scss";
 
-const { Content } = Layout
+const { Content } = Layout;
 export default class index extends Component {
   render() {
     return (

@@ -21,7 +21,7 @@ const MemberRouter = [
                 key: '/member/info',
                 label: '会员信息',
                 icon: <UserDeleteOutlined />,
-                element: <Member/>,
+                element: <Member />,
                 role: [Owner, Admin, OP],
             },
             {
@@ -30,11 +30,11 @@ const MemberRouter = [
                 key: '/member/list',
                 label: '会员列表',
                 icon: <UsergroupAddOutlined />,
-                element: <MemberList/>,
+                element: <MemberList />,
                 role: [Owner, Admin, OP],
-            }    
+            }
         ]
     }
 ]
 
-export default  MemberRouter
+export default MemberRouter

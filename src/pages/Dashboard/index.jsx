@@ -51,31 +51,31 @@ class index extends Component {
   onChange = (selectedRowKeys, selectedRows) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   }
-  render(){
+  render() {
     const { selectionType, columns, data } = this.state;
     return (
       <div>
         <Radio.Group
-        onChange={({ target: { value } }) => {
-          this.setState({selectionType: value});
-        }}
-        value={selectionType}
-      >
-        <Radio value="checkbox">Checkbox</Radio>
-        <Radio value="radio">radio</Radio>
-      </Radio.Group>
-      <Link to={{pathname: 'member/info', search: 'name=123&age=12'}}>去会员详情</Link> |
-      <b onClick={()=> this.props.router.navigate('/order', { state: {name: 'fkc'} })}> 去订单</b>
-      <Divider />
+          onChange={({ target: { value } }) => {
+            this.setState({ selectionType: value });
+          }}
+          value={selectionType}
+        >
+          <Radio value="checkbox">Checkbox</Radio>
+          <Radio value="radio">radio</Radio>
+        </Radio.Group>
+        <Link to={{ pathname: 'member/info', search: 'name=123&age=12' }}>去会员详情</Link> |
+        <b onClick={() => this.props.router.navigate('/order', { state: { name: 'fkc' } })}> 去订单</b>
+        <Divider />
 
-      <Table
-        rowSelection={{
-          type: selectionType,
-          onChange: this.onChange
-        }}
-        columns={columns}
-        dataSource={data}
-      />
+        <Table
+          rowSelection={{
+            type: selectionType,
+            onChange: this.onChange
+          }}
+          columns={columns}
+          dataSource={data}
+        />
       </div>
     )
   }

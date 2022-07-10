@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Layout } from "antd";
 import footer from "../styles/footer.module.scss";
 
-const { Footer } = Layout
+const { Footer } = Layout;
 export default class index extends Component {
   render() {
     return (

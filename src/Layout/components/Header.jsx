@@ -4,7 +4,7 @@ import { Layout, Button } from "antd";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import header from "../styles/header.module.scss";
 
-const { Header } = Layout
+const { Header } = Layout;
 
 // 获取redux中的settings中的state
 const mapStateToProps = (state) => {
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
 // 获取redux中的settings中的action
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCollapsed(){
+    setCollapsed() {
       dispatch({ type: 'settings/setCollapsed' })
     }
   }

@@ -7,8 +7,8 @@ import store from '@/store';
 
 /*
   目前可以匹配到二级SubMenu, 如需匹配嵌套更深的SubMenu, 可以在这里添加case
-*/ 
-function matchSubMenuKeys(openKeys){
+*/
+function matchSubMenuKeys(openKeys) {
   switch (openKeys.length) {
     case 2:
       return [];
@@ -24,7 +24,7 @@ function matchSubMenuKeys(openKeys){
 export default function WithRouter(Component) {
 
   function ComponentWithRouterProp(props) {
-    const [ openKeys, setOpenKeys ] = useState([]);
+    const [openKeys, setOpenKeys] = useState([]);
     const [location, navigate, params] = [useLocation(), useNavigate(), useParams()];
     const handleOpenChange = (openKeys) => setOpenKeys(openKeys);
 
@@ -32,14 +32,14 @@ export default function WithRouter(Component) {
       NProgress.start();
       setOpenKeys(matchSubMenuKeys(location.pathname.split("/")));
       store.subscribe(() => {
-        if(!store.getState().user.token && location.pathname !== '/login'){
+        if (!store.getState().user.token && location.pathname !== '/login') {
           navigate(`/login?redirect=${location.pathname}`);
         }
       })
       NProgress.done();
     }, [location.pathname, navigate]);
 
-    return <Component {...props} onOpenChange={handleOpenChange} router={{ location, navigate, params, openKeys }}/>;
+    return <Component {...props} onOpenChange={handleOpenChange} router={{ location, navigate, params, openKeys }} />;
   }
 
   return ComponentWithRouterProp;

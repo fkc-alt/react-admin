@@ -24,7 +24,7 @@ class index extends Component {
   };
   login = () => {
     this.form.current.validateFields().then(() => {
-      login({userName: 'System', password: '123456'}).then(res => {
+      login({ userName: 'System', password: '123456' }).then(res => {
         const { location, navigate } = this.props.router;
         const { redirect } = getParams(location.search);
         this.props.setToken(res.data.token);
@@ -42,7 +42,7 @@ class index extends Component {
     return (
       <Form
         ref={this.form}
-        style={{paddingTop: "100px"}}
+        style={{ paddingTop: "100px" }}
         name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 8 }}

@@ -10,8 +10,8 @@ const OrderRouter = [
         label: '订单',
         title: '订单',
         icon: <AccountBookOutlined />,
-        element: <Order/>,
+        element: <Order />,
     }
 ]
 
-export default  OrderRouter
+export default OrderRouter

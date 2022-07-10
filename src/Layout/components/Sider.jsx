@@ -27,20 +27,20 @@ class index extends Component {
   };
   render() {
     const { settings: { isCollapsed }, location, openKeys, onOpenChange } = this.props;
-    const attribute = { 
-      theme: "dark", 
+    const attribute = {
+      theme: "dark",
       mode: "inline",
       style: {
         width: isCollapsed ? 80 : 200
-      }, 
-      openKeys, 
-      onOpenChange, 
-      selectedKeys: [location.pathname], 
-      items: this.handleRoutes(routes), 
+      },
+      openKeys,
+      onOpenChange,
+      selectedKeys: [location.pathname],
+      items: this.handleRoutes(routes),
     };
     return (
-      <Sider style={{overflowX: 'hidden'}} collapsed={isCollapsed}>
-        <div style={{textAlign: "center"}}>
+      <Sider style={{ overflowX: 'hidden' }} collapsed={isCollapsed}>
+        <div style={{ textAlign: "center" }}>
           <span className={menu[isCollapsed ? "menu-title_collapsed" : "menu-title"]}>Admin</span>
         </div>
         <Menu {...attribute} />

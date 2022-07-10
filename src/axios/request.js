@@ -23,7 +23,7 @@ Interface.interceptors.response.use(
     const code = res.data.code;
     if (code === 200) {
       return res.data;
-    } else if(code === 400){
+    } else if (code === 400) {
       store.dispatch({ type: 'user/setToken', value: '' })
     } else {
       message.error("This is an error message");
