@@ -44,10 +44,10 @@ export const FilterRouterMenu = (routes, type = void 0) => {
   }, [])
 }
 
-export const handleRoute = (routes) => {
+export const FlattenRouter = (routes) => {
   return routes.reduce((prev, next) => {
     if (next.children) {
-      return [...prev, ...handleRoute(next.children)];
+      return [...prev, ...FlattenRouter(next.children)];
     }
     return [...prev, next];
   }, []);
@@ -66,7 +66,7 @@ const RouterView = (props) => {
       <Layout
         view={
           <Routes>
-            {handleRoute(FilterRouterMenu(routes)).map((route) => (<Route {...route} />))}
+            {FlattenRouter(FilterRouterMenu(routes)).map((route) => (<Route {...route} />))}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         }
