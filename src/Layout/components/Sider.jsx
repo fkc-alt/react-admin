@@ -20,7 +20,7 @@ class index extends Component {
       return {
         key: route.key,
         icon: route.icon,
-        children: route.children ? this.handleRoutes(route.children) : void 0,
+        children: !!route.children?.length ? this.handleRoutes(route.children) : void 0,
         label: route.path ? <Link to={route.path}>{route.label}</Link> : route.label
       };
     });
