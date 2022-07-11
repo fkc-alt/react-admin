@@ -23,7 +23,7 @@ export const routes = [
 
 export const RootSubmenuKeys = (routes) => {
   return routes.reduce((prev, next) => {
-    if (next.children) {
+    if (next.children?.length) {
       return [...prev, next.key, ...RootSubmenuKeys(next.children)]
     }
     return prev;
@@ -32,7 +32,7 @@ export const RootSubmenuKeys = (routes) => {
 
 export const FilterRouterMenu = (routes, type = void 0) => {
   return routes.filter((route) => {
-    if (route.children) {
+    if (route.children?.length) {
       route.children = FilterRouterMenu(route.children, type);
       return !!route.children.length;
     }
@@ -46,7 +46,7 @@ export const FilterRouterMenu = (routes, type = void 0) => {
 
 export const FlattenRouter = (routes) => {
   return routes.reduce((prev, next) => {
-    if (next.children) {
+    if (next.children?.length) {
       return [...prev, ...FlattenRouter(next.children)];
     }
     return [...prev, next];
