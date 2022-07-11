@@ -1,8 +1,8 @@
 /**
- * @module mock_utils
+ * @module utils
  * @author Feng kaichao
  * @param { * } url 
- * @returns { Object } 返回GET请求的数据
+ * @returns { Object } 返回query String数据
  */
 
  export const getParams = url => {
