@@ -1,15 +1,15 @@
 const roleMap = {
-  RoleTypeEnum_Owner: 5, // 店主
-  RoleTypeEnum_Admin: 6, // 超级管理员
-  RoleTypeEnum_OP: 7, // 运营人员
-  RoleTypeEnum_CSR: 8, // 客服人员
-  RoleTypeEnum_GROUPSHOP_OWNER: 15, // 群小店店长
-  RoleTypeEnum_CPSER_INVENTMENT: 22, // 分销权限的招商推广计划
-  RoleTypeEnum_CPSER_INVITATION: 23, // 分销权限的邀请推广计划
-  RoleTypeEnum_CPSER_PARTNERSHIP: 24, // 分销权限的合伙人推广计划
-  RoleTypeEnum_CPSER_COMMON: 25, // 分销权限的通用推广计划
-  RoleTypeEnum_CPSER_POINT: 26, // 分销权限的定向推广计划
-  EXP_SHOP: 100, // 商家号店铺
+  RoleTypeEnum_Owner: 5, 
+  RoleTypeEnum_Admin: 6, 
+  RoleTypeEnum_OP: 7, 
+  RoleTypeEnum_CSR: 8,
+  RoleTypeEnum_GROUPSHOP_OWNER: 15,
+  RoleTypeEnum_CPSER_INVENTMENT: 22, 
+  RoleTypeEnum_CPSER_INVITATION: 23, 
+  RoleTypeEnum_CPSER_PARTNERSHIP: 24,
+  RoleTypeEnum_CPSER_COMMON: 25, 
+  RoleTypeEnum_CPSER_POINT: 26, 
+  EXP_SHOP: 100, 
 };
 
 const ROLE_CONST = {
