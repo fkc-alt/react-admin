@@ -8,7 +8,6 @@ const OrderRouter = [
         path: '/order',
         key: '/order',
         label: '订单',
-        title: '订单',
         icon: <AccountBookOutlined />,
         element: <Order />,
     }
