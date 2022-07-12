@@ -9,7 +9,7 @@ const modulesFiles = require.context('./modules', true, /\.js$/);
 const excludeModules = ['./index.js']
 
 const Mocks = modulesFiles.keys().reduce( (prev, pathName) => {
-    !excludeModules.includes(pathName) && (prev = prev.concat(modulesFiles(pathName).default));
+    !excludeModules.includes(pathName) && (prev = [...prev, ...modulesFiles(pathName).default]);
     return prev;
 }, []);
 
