@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { DesktopOutlined } from "@ant-design/icons";
@@ -80,6 +81,14 @@ const RouterView = (props) => {
       <Route key="/login" path="/login" element={<Login />}></Route>
     </Routes>
   );
+}
+
+RouterView.propTypes = {
+  user: PropTypes.object.isRequired,
+}
+
+RouterView.defaultProps = {
+  user: {},
 }
 
 class index extends Component {

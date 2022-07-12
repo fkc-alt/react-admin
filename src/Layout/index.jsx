@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Layout } from "antd";
 
 import WithRouter from '@/hooks/WithRouter'
@@ -7,6 +8,16 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Content from "./components/Content";
 class index extends Component {
+  static propTypes = {
+    onOpenChange: PropTypes.func.isRequired,
+    router: PropTypes.object.isRequired,
+    view: PropTypes.object.isRequired
+  }
+  static defaultProps = {
+    onOpenChange: () => { },
+    router: {},
+    view: {}
+  }
   render() {
     return (
       <Layout style={{ height: "100vh" }} >
