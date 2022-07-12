@@ -1,6 +1,6 @@
 /**
  * @module mock_utils
- * @author Feng kaichao
+ * @author kaichao Feng
  * @param { * } url 
  * @returns { Object } 返回GET请求的数据
  */

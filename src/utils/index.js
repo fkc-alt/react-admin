@@ -1,6 +1,6 @@
 /**
  * @module utils
- * @author Feng kaichao
+ * @author kaichao Feng
  * @param { * } url 
  * @returns { Object } 返回query String数据
  */
