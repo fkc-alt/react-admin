@@ -6,9 +6,9 @@ import { DesktopOutlined } from "@ant-design/icons";
 
 import store from '@/store';
 import Layout from "@/Layout";
-import modules from './modules';
 import Login from "@/pages/Login";
 import Dashboard from "@/pages/Dashboard";
+import modules from './modules';
 
 export const routes = [
   {
