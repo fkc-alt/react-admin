@@ -6,9 +6,9 @@ import { DesktopOutlined } from "@ant-design/icons";
 
 import store from '@/store';
 import Layout from "@/Layout";
-import Dashboard from "@/pages/Dashboard";
-import Login from "@/pages/Login";
 import modules from './modules';
+import Login from "@/pages/Login";
+import Dashboard from "@/pages/Dashboard";
 
 export const routes = [
   {
@@ -42,7 +42,7 @@ export const FilterRouterMenu = (routes, type = void 0) => {
       return type ? condition && !route.hidden : condition;
     }
     return type ? !route.hidden : true;
-  }, [])
+  })
 }
 
 export const FlattenRouter = (routes) => {
