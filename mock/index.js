@@ -2,8 +2,6 @@ const Mock = require('mockjs');
 
 const { getParams } = require('./utils');
 
-const { NODE_ENV } = process.env;
-
 const modulesFiles = require.context('./modules', true, /\.js$/);
 
 const excludeModules = ['./index.js']
@@ -18,8 +16,6 @@ function XHRMapResopnse(_, response) {
     return typeof response === 'function' ? response(Mock, _, getParams(_.url)) : response;
 }
 
-if(NODE_ENV === 'development'){
-    for (const i of Mocks) {
-        Mock.mock(new RegExp(i.url), i.method, options => XHRMapResopnse(options, i.response));
-    }
+for (const i of Mocks) {
+    Mock.mock(new RegExp(i.url), i.method, options => XHRMapResopnse(options, i.response));
 }
