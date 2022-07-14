@@ -10,8 +10,6 @@ import store from '@/store';
 */
 function matchSubMenuKeys(openKeys) {
   switch (openKeys.length) {
-    case 2:
-      return [];
     case 3:
       return [`/${openKeys.slice(1, 2)}`];
     case 4:
