@@ -54,6 +54,15 @@ export const FlattenRouter = (routes) => {
   }, []);
 };
 
+export const MapRoutes = (props) =>{
+  return (
+    <Routes>
+      {FlattenRouter(FilterRouterMenu(routes)).map((route) => (<Route {...route} />))}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  )
+}
+
 // 获取redux中的settings中的state
 const mapStateToProps = (state) => {
   return {
@@ -62,25 +71,16 @@ const mapStateToProps = (state) => {
 };
 
 const RouterView = (props) => {
-  if (props.user.token) {
+  function Render(){
     return (
-      <Layout
-        view={
-          <Routes>
-            {FlattenRouter(FilterRouterMenu(routes)).map((route) => (<Route {...route} />))}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        }
-      />
-    )
+      <Routes>
+        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route key="/" path="/" element={<Navigate to='/login' replace />}></Route>
+        <Route key="/login" path="/login" element={<Login />}></Route>
+      </Routes>
+    );
   }
-  return (
-    <Routes>
-      <Route path="*" element={<Navigate to="/login" replace />} />
-      <Route key="/" path="/" element={<Navigate to='/login' replace />}></Route>
-      <Route key="/login" path="/login" element={<Login />}></Route>
-    </Routes>
-  );
+  return props.user.token ? <Layout /> : <Render />;
 }
 
 RouterView.propTypes = {
