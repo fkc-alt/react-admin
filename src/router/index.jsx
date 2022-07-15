@@ -17,8 +17,7 @@ export const routes = [
     label: "首页",
     path: "/",
     icon: <DesktopOutlined />,
-    element: <Dashboard />,
-    render: (props) => <Dashboard {...props} />,
+    Component: (props) => <Dashboard {...props} />,
   },
   ...modules,
 ];
@@ -64,8 +63,8 @@ export const MapRoutes = (props) =>{
   )
 }
 
-const MapRoute = (route, props) => {
- route.render ? route.element = route.render(props) : void 0;
+const MapRoute = (route, props = {}) => {
+ Object.assign(route, { element: <route.Component {...props} /> });
  return  <Route {...route} />
 }
 

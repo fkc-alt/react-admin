@@ -20,19 +20,18 @@ const MemberRouter = [
                 path: '/member/info',
                 key: '/member/info',
                 label: '会员信息',
-                icon: <UserDeleteOutlined />,
-                element: <Member />,
-                render: (props) =>  <Member {...props} />,
                 role: [Owner, Admin, OP],
+                icon: <UserDeleteOutlined />,
+                Component: (props) =>  <Member {...props} />,
             },
             {
                 hidden: false,
                 path: '/member/list',
                 key: '/member/list',
                 label: '会员列表',
-                icon: <UsergroupAddOutlined />,
-                element: <MemberList />,
                 role: [Owner, Admin, OP],
+                icon: <UsergroupAddOutlined />,
+                Component: (props) =>  <MemberList {...props} />,
             }
         ]
     }
