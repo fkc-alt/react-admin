@@ -58,10 +58,14 @@ export const FlattenRouter = (routes) => {
 export const MapRoutes = (props) =>{
   return (
     <Routes>
-      {FlattenRouter(FilterRouterMenu(routes)).map((route) => (<Route {...route} element={route.render ? route.render(props) : route.element} />))}
+      {FlattenRouter(FilterRouterMenu(routes)).map((route) => mapRoute(route, props))}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
+}
+
+const mapRoute = (route, props) => {
+ return  <Route {...route} element={route.render ? route.render(props) : route.element} />
 }
 
 // 获取redux中的settings中的state
