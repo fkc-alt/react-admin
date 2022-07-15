@@ -18,6 +18,7 @@ export const routes = [
     path: "/",
     icon: <DesktopOutlined />,
     element: <Dashboard />,
+    render: (props) => <Dashboard {...props} />,
   },
   ...modules,
 ];
@@ -57,7 +58,7 @@ export const FlattenRouter = (routes) => {
 export const MapRoutes = (props) =>{
   return (
     <Routes>
-      {FlattenRouter(FilterRouterMenu(routes)).map((route) => (<Route {...route} />))}
+      {FlattenRouter(FilterRouterMenu(routes)).map((route) => (<Route {...route} element={route.render ? route.render(props) : route.element} />))}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

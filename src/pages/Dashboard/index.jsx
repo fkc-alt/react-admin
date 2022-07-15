@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Divider, Radio, Table } from 'antd';
 import { Link } from 'react-router-dom';
 
-import WithRouter from '@/hooks/WithRouter';
-class index extends Component {
+export default class index extends Component {
   state = {
     selectionType: 'checkbox',
     columns: [
@@ -65,7 +64,7 @@ class index extends Component {
           <Radio value="radio">radio</Radio>
         </Radio.Group>
         <Link to={{ pathname: 'member/info', search: 'name=123&age=12' }}>去会员详情</Link> |
-        <b onClick={() => this.props.router.navigate('/order', { state: { name: 'fkc' } })}> 去订单</b>
+        <b onClick={() => this.props.navigate('/order', { state: { name: 'fkc' } })}> 去订单</b>
         <Divider />
 
         <Table
@@ -80,5 +79,3 @@ class index extends Component {
     )
   }
 }
-
-export default WithRouter(index);

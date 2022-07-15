@@ -9,7 +9,7 @@ export default class index extends Component {
   render() {
     return (
       <Content className={content.container}>
-        <RouterView />
+        <RouterView {...this.props}/>
       </Content>
     );
   }

@@ -10,6 +10,7 @@ const OrderRouter = [
         label: '订单',
         icon: <AccountBookOutlined />,
         element: <Order />,
+        render: (props) => <Order {...props} />
     }
 ]
 

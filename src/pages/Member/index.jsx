@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import WithRouter from "@/hooks/WithRouter";
 import { getList } from "@/api/dashboard";
 import { getParams } from '@/utils';
 
@@ -24,7 +23,7 @@ class index extends Component {
     this.props.setToken();
   }
   componentDidMount() {
-    getList(getParams(this.props.router.location.search))
+    getList(getParams(this.props.location.search))
       .then((res) => {
         console.log(res);
       })
@@ -39,4 +38,4 @@ class index extends Component {
   }
 }
 
-export default WithRouter(connect(mapStateToProps, mapDispatchToProps)(index));
+export default connect(mapStateToProps, mapDispatchToProps)(index);

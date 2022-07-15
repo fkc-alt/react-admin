@@ -22,6 +22,7 @@ const MemberRouter = [
                 label: '会员信息',
                 icon: <UserDeleteOutlined />,
                 element: <Member />,
+                render: (props) =>  <Member {...props} />,
                 role: [Owner, Admin, OP],
             },
             {
