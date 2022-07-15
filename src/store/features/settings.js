@@ -8,8 +8,8 @@ export const settingSlice = createSlice({
     name: 'settings',
     initialState,
     reducers: {
-        setCollapsed(state){
-            state.isCollapsed = !state.isCollapsed;
+        setCollapsed(state, { value }){
+            state.isCollapsed = value ?? !state.isCollapsed;
         }
     }
 })
