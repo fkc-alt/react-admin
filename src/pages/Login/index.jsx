@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Button, Checkbox, Form, Input } from "antd";
 
 import { login } from '@/api'
-import WithRouter from "@/hooks/WithRouter";
 import { getParams } from '@/utils';
 
 // 获取redux中的settings中的action
@@ -39,6 +38,7 @@ class index extends Component {
     })
   };
   render() {
+    console.log(this);
     return (
       <Form
         ref={this.form}
@@ -103,4 +103,4 @@ class index extends Component {
   }
 }
 
-export default WithRouter(connect(null, mapDispatchToProps)(index));
+export default connect(null, mapDispatchToProps)(index);

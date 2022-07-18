@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { DesktopOutlined } from "@ant-design/icons";
 
+import { $route } from "@/hooks/WithRouter";
 import store from '@/store';
 import Layout from "@/Layout";
 import Login from "@/pages/Login";
@@ -77,11 +78,12 @@ const mapStateToProps = (state) => {
 
 const RouterView = (props) => {
   function Render(){
+    const [location, navigate, params] = $route();
     return (
       <Routes>
         <Route path="*" element={<Navigate to="/login" replace />} />
         <Route key="/" path="/" element={<Navigate to='/login' replace />}></Route>
-        <Route key="/login" path="/login" element={<Login />}></Route>
+        <Route key="/login" path="/login" element={<Login router={{ location, navigate, params }} />}></Route>
       </Routes>
     );
   }

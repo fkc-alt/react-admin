@@ -5,6 +5,8 @@ import 'nprogress/nprogress.css';
 
 import store from '@/store';
 
+export const $route = () => [useLocation(), useNavigate(), useParams()];
+
 /*
   目前可以匹配到二级SubMenu, 如需匹配嵌套更深的SubMenu, 可以在这里添加case
 */
@@ -23,7 +25,7 @@ export default function WithRouter(Component) {
 
   function ComponentWithRouterProp(props) {
     const [openKeys, setOpenKeys] = useState([]);
-    const [location, navigate, params] = [useLocation(), useNavigate(), useParams()];
+    const [location, navigate, params] = $route();
     const handleOpenChange = (openKeys) => setOpenKeys(openKeys);
 
     useEffect(() => {
