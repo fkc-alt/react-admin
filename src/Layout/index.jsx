@@ -23,12 +23,10 @@ class index extends Component {
   static propTypes = {
     onOpenChange: PropTypes.func.isRequired,
     router: PropTypes.object.isRequired,
-    view: PropTypes.object.isRequired
   }
   static defaultProps = {
     onOpenChange: () => { },
     router: {},
-    view: {}
   }
   $_resizeHandler = (e) => {
     if (!document.hidden) {

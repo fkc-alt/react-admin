@@ -64,8 +64,8 @@ export const MapRoutes = (props) =>{
   )
 }
 
-const MapRoute = (route, props = {}) => {
- Object.assign(route, { element: <route.Component {...props} /> });
+const MapRoute = (route, props = {}, { Component } = route) => {
+ Object.assign(route, { element: <Component {...props} /> });
  return  <Route {...route} />
 }
 
@@ -97,6 +97,7 @@ RouterView.propTypes = {
 RouterView.defaultProps = {
   user: {},
 }
+
 
 class index extends Component {
   render() {

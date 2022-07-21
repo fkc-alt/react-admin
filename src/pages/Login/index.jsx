@@ -38,7 +38,6 @@ class index extends Component {
     })
   };
   render() {
-    console.log(this);
     return (
       <Form
         ref={this.form}
