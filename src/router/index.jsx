@@ -34,7 +34,7 @@ export const RootSubmenuKeys = (routes) => {
 
 export const FilterRouterMenu = (routes, type = void 0) => {
   return routes.filter((route) => {
-    if (route.children?.length) {
+    if (route.children && Array.isArray(route.children)) {
       route.children = FilterRouterMenu(route.children, type);
       return !!route.children.length;
     }
