@@ -4,5 +4,16 @@
   padding: 10px;
 }
 .title {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  span, a {
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow:ellipsis; 
+    overflow:hidden; 
+    color: #bbb;
+    &:hover {
+      color: #000;
+    }
+  }
 }
