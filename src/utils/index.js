@@ -6,7 +6,6 @@
  */
 
  export const getParams = url => {
-    console.log('first')
     const search = url.split('?')[1];
     if (!search) return {};
     return search.split('&').reduce((prev, next) => {

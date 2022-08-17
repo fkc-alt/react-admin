@@ -148,7 +148,7 @@
     "sass": "^1.53.0"
   },
   "lint-staged": {
-    "src/**/*.js(x)": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
   }
