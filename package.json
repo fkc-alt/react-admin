@@ -66,9 +66,12 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
+    "prepare": "husky install",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "pre-commit": "lint-staged",
+    "commitlint": "commitlint --config commitlint.config.js -e -V"
   },
   "browserslist": {
     "production": [
@@ -137,7 +140,16 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "mockjs": "^1.1.0",
     "sass": "^1.53.0"
+  },
+  "lint-staged": {
+    "src/**/*.js(x)": [
+      "eslint --fix"
+    ]
   }
 }
