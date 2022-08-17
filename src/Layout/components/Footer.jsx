@@ -17,7 +17,8 @@ export default class index extends Component {
               src="https://www.2345.com/images/index/renzheng_gab.png"
               alt=""
             />
-            京公网安备11000002000001号
+            有需要可以替换
+            {/* 京公网安备xxxxxxxx号 */}
           </a>
         </div>
       </Footer>
