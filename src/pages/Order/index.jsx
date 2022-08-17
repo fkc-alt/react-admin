@@ -4,7 +4,7 @@ const { Step } = Steps;
 export default class index extends Component {
   VNode = createRef()
   componentDidMount() {
-    console.log(this.VNode);
+    console.log(this.VNode, 'Element');
   }
   render() {
     return (
