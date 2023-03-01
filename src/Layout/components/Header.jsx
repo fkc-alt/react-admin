@@ -21,6 +21,8 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
+
+@connect(mapStateToProps, mapDispatchToProps)
 class index extends Component {
   render() {
     return (
@@ -33,4 +35,4 @@ class index extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(index);
+export default index;

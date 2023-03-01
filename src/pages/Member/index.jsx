@@ -18,6 +18,8 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
+
+@connect(mapStateToProps, mapDispatchToProps)
 class index extends Component {
   logout = () => {
     this.props.setToken();
@@ -38,4 +40,4 @@ class index extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(index);
+export default index;

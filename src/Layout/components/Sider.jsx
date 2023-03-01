@@ -14,6 +14,8 @@ const mapStateToProps = (state) => {
     settings: state.settings
   }
 }
+
+@connect(mapStateToProps)
 class index extends Component {
   handleRoutes = (routes) => {
     return FilterRouterMenu(routes, true).map((route) => {
@@ -49,4 +51,4 @@ class index extends Component {
   }
 }
 
-export default connect(mapStateToProps)(index);
+export default index;

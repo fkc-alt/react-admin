@@ -22,7 +22,6 @@ function matchSubMenuKeys(openKeys) {
 }
 
 export default function WithRouter(Component) {
-
   function ComponentWithRouterProp(props) {
     const [openKeys, setOpenKeys] = useState([]);
     const [location, navigate, params] = $route();

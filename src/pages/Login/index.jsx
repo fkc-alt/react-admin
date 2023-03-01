@@ -13,6 +13,8 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
+
+@connect(null, mapDispatchToProps)
 class index extends Component {
   form = createRef();
   onFinish = (values) => {
@@ -102,4 +104,4 @@ class index extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(index);
+export default index;

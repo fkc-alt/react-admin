@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+@connect(null, mapDispatchToProps)
 class index extends Component {
   WIDTH = 992;
   static propTypes = {
@@ -56,5 +57,5 @@ class index extends Component {
     );
   }
 }
-
-export default WithRouter(connect(null, mapDispatchToProps)(index))
+console.log(connect(null, mapDispatchToProps)(index))
+export default WithRouter(index)
